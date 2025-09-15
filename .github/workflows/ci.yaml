@@ -1,4 +1,3 @@
-
 name: ci
 on: [push]
 jobs:
@@ -16,19 +15,3 @@ jobs:
           pip install -r requirements.txt
       - name: Run main file
         run: python main.py
-
-    
-## Only CML specefic code
-
-    - name: Create CML report
-      env:
-        REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-
-        echo "# First Line of our report" >> report.md
-        echo "## Bar Plots" >> report.md
-        echo '![](./bars.png "Bar plot")' >> report.md
-        echo "## Line Plots" >> report.md
-        echo '![](./lines.png "Bar plot")' >> report.md
-
-        cml comment create report.md
